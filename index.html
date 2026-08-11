@@ -5,181 +5,547 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta
       name="description"
-      content="Professional guitar setup and maintenance."
+      content="Thoughtful acoustic, electric, and bass guitar setups in Middle Tennessee."
     >
-    <title>Your Guitar Setup Business</title>
+    <title>DB Guitar Setup | Middle Tennessee</title>
     <style>
       :root {
-        --ink: #17201c;
-        --paper: #f5f0e7;
-        --accent: #d86534;
-        --line: #cfc5b5;
+        --forest: #12342d;
+        --forest-dark: #0b241f;
+        --cream: #f8f3e9;
+        --paper: #fffdf8;
+        --ink: #17221e;
+        --muted: #51615a;
+        --copper: #d36b38;
+        --gold: #f0bd63;
+        --line: #d9d0c0;
+        --shadow: 0 1.15rem 3rem rgba(10, 35, 29, 0.11);
       }
 
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
-      html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
       body {
+        min-width: 20rem;
         margin: 0;
         color: var(--ink);
-        background: var(--paper);
-        font-family: Georgia, "Times New Roman", serif;
-        line-height: 1.5;
+        background:
+          radial-gradient(circle at 100% 0, #e7c990 0, transparent 28rem),
+          var(--cream);
+        font-family: Inter, Avenir, "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
       }
 
-      main {
-        width: min(100% - 2rem, 42rem);
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(100% - 2rem, 70rem);
         margin: 0 auto;
-        padding: 1.25rem 0 3rem;
+        padding: 1rem 0 3rem;
       }
 
-      .eyebrow {
-        margin: 0 0 0.7rem;
-        color: var(--accent);
-        font-family: Arial, sans-serif;
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(1.5rem, 5vw, 4.5rem);
+        color: #fffdf8;
+        background:
+          linear-gradient(125deg, var(--forest) 0%, var(--forest-dark) 65%),
+          var(--forest);
+        border-radius: 1.25rem;
+        box-shadow: var(--shadow);
+      }
+
+      .hero::after {
+        position: absolute;
+        right: -10rem;
+        bottom: -12rem;
+        width: 30rem;
+        height: 30rem;
+        content: "";
+        background: repeating-radial-gradient(
+          circle at center,
+          transparent 0,
+          transparent 1.9rem,
+          rgba(240, 189, 99, 0.15) 2rem,
+          transparent 2.1rem
+        );
+        transform: rotate(-18deg);
+        pointer-events: none;
+      }
+
+      .hero > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-bar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem 1rem;
+        margin-bottom: clamp(1.5rem, 4vw, 3.5rem);
+      }
+
+      .eyebrow,
+      .section-label {
+        margin: 0;
+        color: var(--gold);
         font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.13em;
+        font-weight: 800;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
       }
 
-      h1, h2, p { margin-top: 0; }
-
-      h1 {
-        max-width: 9ch;
-        margin-bottom: 1rem;
-        font-size: clamp(3rem, 14vw, 5.25rem);
-        line-height: 0.9;
-        letter-spacing: -0.06em;
+      .hero-bar .location {
+        margin: 0;
+        color: #d6e0d9;
+        font-size: 0.9rem;
+        font-weight: 650;
       }
 
-      h2 {
-        margin-bottom: 0.75rem;
-        font-size: 1.4rem;
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      h1 {
+        margin-bottom: 1.25rem;
+        color: #fffdf8;
+        font-size: clamp(1.8rem, 9.6vw, 5.25rem);
+        font-weight: 700;
+        line-height: 0.98;
+        letter-spacing: -0.06em;
+        white-space: nowrap;
+      }
+
+      .hero-content {
+        display: grid;
+        gap: 1.5rem;
+        align-items: end;
       }
 
       .intro {
-        max-width: 38rem;
-        margin-bottom: 1.5rem;
-        font-size: 1.18rem;
+        max-width: 41rem;
+        margin: 0;
+        color: #e9eee9;
+        font-size: clamp(1.08rem, 2.6vw, 1.3rem);
+        line-height: 1.55;
+      }
+
+      .price-callout {
+        display: grid;
+        gap: 0.15rem;
+        align-self: stretch;
+        min-width: 11rem;
+        padding: 1rem 1.15rem;
+        color: var(--forest-dark);
+        background: var(--gold);
+        border-radius: 0.75rem;
+        box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.15);
+        font-size: 0.84rem;
+        font-weight: 750;
+        line-height: 1.25;
+      }
+
+      .price-callout strong {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2.4rem;
+        line-height: 1;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.75rem;
       }
 
       .button {
-        display: block;
-        width: 100%;
-        margin: 0.75rem 0;
-        padding: 1rem;
-        color: #fff;
-        background: var(--ink);
-        border: 2px solid var(--ink);
-        border-radius: 0.2rem;
-        font-family: Arial, sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
+        display: inline-flex;
+        flex: 1 1 13rem;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.25rem;
+        padding: 0.8rem 1rem;
+        color: var(--forest-dark);
+        background: var(--gold);
+        border: 2px solid var(--gold);
+        border-radius: 0.55rem;
+        font-size: 0.95rem;
+        font-weight: 800;
+        line-height: 1.2;
         text-align: center;
         text-decoration: none;
+        overflow-wrap: anywhere;
+        transition:
+          background 150ms ease,
+          color 150ms ease,
+          transform 150ms ease;
+      }
+
+      .button:hover {
+        color: #fffdf8;
+        background: var(--copper);
+        border-color: var(--copper);
+        transform: translateY(-2px);
       }
 
       .button.secondary {
-        color: var(--ink);
+        color: #fffdf8;
         background: transparent;
+        border-color: rgba(255, 253, 248, 0.58);
       }
 
-      section {
-        padding: 1.8rem 0;
-        border-top: 1px solid var(--line);
+      .button.secondary:hover {
+        color: var(--forest-dark);
+        background: #fffdf8;
+        border-color: #fffdf8;
       }
 
-      .list {
+      .button:focus-visible {
+        outline: 3px solid #fffdf8;
+        outline-offset: 3px;
+      }
+
+      main {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .section {
+        padding: clamp(1.5rem, 4vw, 2.5rem);
+        background: var(--paper);
+        border: 1px solid rgba(123, 102, 72, 0.18);
+        border-radius: 1rem;
+        box-shadow: 0 0.35rem 1.2rem rgba(29, 43, 35, 0.045);
+      }
+
+      .section-label {
+        margin-bottom: 0.45rem;
+        color: var(--copper);
+      }
+
+      h2 {
+        margin-bottom: 1rem;
+        font-size: clamp(1.7rem, 4.5vw, 2.55rem);
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+      }
+
+      .section-copy {
+        max-width: 42rem;
+        margin-bottom: 1.25rem;
+        color: var(--muted);
+      }
+
+      .service-card {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.25rem;
+        background: #f2e6cd;
+        border-left: 0.35rem solid var(--copper);
+        border-radius: 0.5rem;
+      }
+
+      .service-card h3 {
+        margin: 0 0 0.2rem;
+        font-size: 1.25rem;
+        line-height: 1.15;
+      }
+
+      .service-card p {
+        margin: 0;
+        color: #46564f;
+        font-size: 0.95rem;
+      }
+
+      .service-price {
+        flex: 0 0 auto;
+        color: var(--forest);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2rem, 7vw, 3rem);
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.06em;
+      }
+
+      .note {
+        margin: 1rem 0 0;
+        color: var(--muted);
+        font-size: 0.91rem;
+      }
+
+      .check-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        gap: 0.1rem 1.5rem;
         padding: 0;
         margin: 0;
         list-style: none;
       }
 
-      .list li {
-        padding: 0.75rem 0;
+      .check-list li {
+        position: relative;
+        min-width: 0;
+        padding: 0.8rem 0 0.8rem 1.5rem;
         border-bottom: 1px solid var(--line);
-        font-size: 1.05rem;
       }
 
-      .price {
-        float: right;
-        font-family: Arial, sans-serif;
-        font-size: 0.9rem;
-        font-weight: 700;
+      .check-list li::before {
+        position: absolute;
+        left: 0;
+        color: var(--copper);
+        content: "+";
+        font-size: 1.25rem;
+        font-weight: 800;
+        line-height: 1.3;
       }
 
-      .note {
-        color: #4f5a54;
-        font-size: 0.95rem;
+      .details-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .details-grid > div {
+        padding: 1.2rem;
+        background: #eef3ed;
+        border-radius: 0.65rem;
+      }
+
+      .details-grid h3 {
+        margin-bottom: 0.45rem;
+        font-size: 1.2rem;
+      }
+
+      .details-grid p {
+        margin-bottom: 0;
+        color: #405149;
+      }
+
+      .booking-section {
+        color: #fffdf8;
+        background: var(--forest);
+        border: 0;
+      }
+
+      .booking-section h2,
+      .booking-section .section-copy {
+        color: inherit;
+      }
+
+      .booking-section .section-copy {
+        max-width: 38rem;
+        color: #d6e0d9;
+      }
+
+      .booking-section .section-label {
+        color: var(--gold);
+      }
+
+      .booking-section .button {
+        width: 100%;
+        max-width: 20rem;
+      }
+
+      .disclaimer {
+        padding: 1.2rem 1.3rem;
+        color: #44544c;
+        background: #ece6da;
+        border-left: 0.3rem solid var(--copper);
+        border-radius: 0.4rem;
+      }
+
+      .disclaimer h2 {
+        margin-bottom: 0.4rem;
+        font-size: 1.2rem;
+      }
+
+      .disclaimer p {
+        margin: 0;
       }
 
       footer {
-        padding-top: 1.5rem;
-        color: #4f5a54;
-        font-size: 0.85rem;
+        padding: 1.25rem 0 0;
+        color: var(--muted);
+        font-size: 0.88rem;
         text-align: center;
       }
 
       @media (min-width: 42rem) {
-        main { padding-top: 3rem; }
-        .button { display: inline-block; width: auto; margin-right: 0.5rem; }
+        .page {
+          padding-top: 2rem;
+        }
+
+        .hero-content {
+          grid-template-columns: minmax(0, 1fr) 11.5rem;
+        }
+
+        .price-callout {
+          align-self: end;
+        }
+
+        .details-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 25rem) {
+        .hero-bar .location {
+          display: none;
+        }
+
+        .service-card {
+          gap: 0.6rem;
+          padding: 1rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .button {
+          transition: none;
+        }
       }
     </style>
   </head>
   <body>
-    <main>
-      <!-- Replace all text in [brackets] before sharing your QR code. -->
-      <p class="eyebrow">[City / Area] Guitar Care</p>
-      <h1>[Your Business Name]</h1>
-      <p class="intro">
-        Professional guitar setups that make your instrument easier, cleaner,
-        and more enjoyable to play.
-      </p>
+    <div class="page">
+      <header class="hero">
+        <div class="hero-bar">
+          <p class="eyebrow">Guitar Care</p>
+          <p class="location">Middle Tennessee</p>
+        </div>
 
-      <!-- Replace the phone number in both the visible text and tel: link. -->
-      <a class="button" href="tel:+15555555555">Call&nbsp;or&nbsp;Text:&nbsp;[Your&nbsp;Phone&nbsp;Number]</a>
-      <!-- Replace the email address in both the visible text and mailto: link. -->
-      <a class="button secondary" href="mailto:you@example.com">Email: [Your Email]</a>
+        <h1>DB Guitar Setup</h1>
 
-      <section>
-        <h2>What I Do</h2>
-        <ul class="list">
-          <li>Full setup <span class="price">[$00]</span></li>
-          <li>String change + setup <span class="price">[$00]</span></li>
-          <li>Acoustic guitar setup <span class="price">[$00]</span></li>
-          <li>Bass setup <span class="price">[$00]</span></li>
-        </ul>
-        <p class="note">Parts and strings are additional unless noted.</p>
-      </section>
+        <div class="hero-content">
+          <p class="intro">
+            Drew and Bradley provide thoughtful setups that make your instrument
+            easier to play, cleaner, and more enjoyable.
+          </p>
+          <div class="price-callout">
+            Full setup
+            <strong>$70</strong>
+            Acoustic, electric, or bass
+          </div>
+        </div>
 
-      <section>
-        <h2>Every Setup Includes</h2>
-        <ul class="list">
-          <li>Neck relief and action adjustment</li>
-          <li>Intonation check and adjustment</li>
-          <li>Fretboard clean and condition</li>
-          <li>Hardware check and basic cleaning</li>
-        </ul>
-      </section>
+        <div class="hero-actions">
+          <a class="button" href="tel:+19512182663"
+            >Call&nbsp;or&nbsp;Text:&nbsp;+1&nbsp;951&nbsp;218&nbsp;2663</a
+          >
+          <a class="button secondary" href="mailto:dbguitarsetup@gmail.com"
+            >Email: dbguitarsetup@gmail.com</a
+          >
+        </div>
+      </header>
 
-      <section>
-        <h2>How It Works</h2>
-        <p>
-          Text or email me with your guitar and what you want improved. We'll
-          arrange a drop-off, and I’ll confirm the turnaround time before work begins.
-        </p>
-        <p><strong>Typical turnaround:</strong> [1-3 days]</p>
-      </section>
+      <main>
+        <section class="section" aria-labelledby="services-title">
+          <p class="section-label">The Service</p>
+          <h2 id="services-title">One complete setup. No guesswork.</h2>
+          <p class="section-copy">
+            We set up acoustic guitars, electric guitars, and basses with the
+            care they need to feel right in your hands.
+          </p>
 
-      <section>
-        <h2>Ready to Play Better?</h2>
-        <p>[Add your service area, drop-off details, or a short booking note here.]</p>
-        <a class="button" href="tel:+15555555555">Book&nbsp;a&nbsp;Setup</a>
-      </section>
+          <div class="service-card">
+            <div>
+              <h3>Full Guitar Setup</h3>
+              <p>Acoustic, electric, and bass guitars.</p>
+            </div>
+            <span class="service-price">$70</span>
+          </div>
+          <p class="note">Parts and strings are additional unless noted.</p>
+        </section>
 
-      <footer>[Your Business Name] - [City, State]</footer>
-    </main>
+        <section class="section" aria-labelledby="includes-title">
+          <p class="section-label">Included</p>
+          <h2 id="includes-title">Every setup covers the details.</h2>
+          <ul class="check-list">
+            <li>Fret prep and fret polish</li>
+            <li>Fretboard rehydration</li>
+            <li>Body polish</li>
+            <li>String change</li>
+            <li>Truss rod adjustment</li>
+            <li>Neck relief and action adjustment</li>
+            <li>Intonation check and adjustment</li>
+            <li>Hardware check and basic cleaning</li>
+            <li>Wipe down</li>
+          </ul>
+        </section>
+
+        <section class="section" aria-labelledby="process-title">
+          <p class="section-label">The Process</p>
+          <h2 id="process-title">Simple from drop-off to pick-up.</h2>
+          <div class="details-grid">
+            <div>
+              <h3>Get in touch</h3>
+              <p>
+                Text or email us with your guitar and what you would like
+                improved.
+              </p>
+            </div>
+            <div>
+              <h3>Drop off and play</h3>
+              <p>
+                We'll arrange a drop-off and confirm the turnaround before work
+                begins. Typical turnaround is 1-3 days.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="section booking-section"
+          aria-labelledby="booking-title"
+        >
+          <p class="section-label">Book a Setup</p>
+          <h2 id="booking-title">Ready to play better?</h2>
+          <p class="section-copy">
+            Text or call us to schedule your guitar setup. We'll help get your
+            guitar playing its best in no time.
+          </p>
+          <a class="button" href="tel:+19512182663"
+            >Call&nbsp;or&nbsp;Text&nbsp;to&nbsp;Schedule</a
+          >
+        </section>
+
+        <section class="disclaimer" aria-labelledby="disclaimer-title">
+          <h2 id="disclaimer-title">Disclaimer</h2>
+          <p>
+            We are not professional luthiers and cannot do major repairs. Our
+            purpose is to sharpen the weapons the Levites use to demolish the
+            strongholds we war against.
+          </p>
+        </section>
+      </main>
+
+      <footer>DB Guitar Setup &middot; Middle Tennessee</footer>
+    </div>
   </body>
 </html>
