@@ -10,16 +10,20 @@
     <title>DB Guitar Setup | Middle Tennessee</title>
     <style>
       :root {
-        --forest: #12342d;
-        --forest-dark: #0b241f;
-        --cream: #f8f3e9;
-        --paper: #fffdf8;
-        --ink: #17221e;
-        --muted: #51615a;
-        --copper: #d36b38;
-        --gold: #f0bd63;
-        --line: #d9d0c0;
-        --shadow: 0 1.15rem 3rem rgba(10, 35, 29, 0.11);
+        --forest: #21483b;
+        --forest-deep: #14372c;
+        --ivory: #fcfaf5;
+        --ivory-deep: #e9e4d8;
+        --sage: #edf3ea;
+        --sage-deep: #dce8dc;
+        --warm: #b96748;
+        --ink: #1b4034;
+        --muted: #52665c;
+        --line: rgba(33, 72, 59, 0.42);
+        --line-soft: rgba(33, 72, 59, 0.16);
+        --display: Didot, "Bodoni 72", "Bodoni MT", "Iowan Old Style", Georgia, serif;
+        --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        --sans: "Avenir Next", Avenir, "Gill Sans", "Segoe UI", Arial, sans-serif;
       }
 
       * {
@@ -35,11 +39,11 @@
         margin: 0;
         color: var(--ink);
         background:
-          radial-gradient(circle at 100% 0, #e7c990 0, transparent 28rem),
-          var(--cream);
-        font-family: Inter, Avenir, "Avenir Next", "Segoe UI", sans-serif;
-        font-size: 1rem;
-        line-height: 1.6;
+          radial-gradient(circle at 100% 0, #dbe7db 0, transparent 30rem),
+          var(--ivory-deep);
+        font-family: var(--sans);
+        font-size: 1.03rem;
+        line-height: 1.65;
       }
 
       a {
@@ -47,38 +51,60 @@
       }
 
       .page {
-        width: min(100% - 2rem, 70rem);
-        margin: 0 auto;
-        padding: 1rem 0 3rem;
+        width: min(100% - 1.5rem, 73rem);
+        margin: 1.25rem auto 2.5rem;
+        overflow: hidden;
+        background: var(--ivory);
+        border: 1px solid rgba(33, 72, 59, 0.45);
+        border-radius: 0.9rem;
+        box-shadow: 0 1.25rem 3.75rem rgba(20, 55, 44, 0.12);
       }
 
       .hero {
         position: relative;
         overflow: hidden;
-        padding: clamp(1.5rem, 5vw, 4.5rem);
-        color: #fffdf8;
+        padding: clamp(1.5rem, 5vw, 4.75rem);
+        background: linear-gradient(135deg, #fefdf9 0%, #edf4eb 100%);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero::before {
+        position: absolute;
+        top: -5rem;
+        bottom: -5rem;
+        left: -1.6rem;
+        width: 4.5rem;
+        content: "";
         background:
-          linear-gradient(125deg, var(--forest) 0%, var(--forest-dark) 65%),
-          var(--forest);
-        border-radius: 1.25rem;
-        box-shadow: var(--shadow);
+          repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 2.5rem,
+            rgba(23, 54, 44, 0.8) 2.5rem,
+            rgba(23, 54, 44, 0.8) 2.62rem
+          ),
+          repeating-linear-gradient(
+            to right,
+            transparent 0,
+            transparent 0.47rem,
+            rgba(23, 54, 44, 0.85) 0.47rem,
+            rgba(23, 54, 44, 0.85) 0.55rem
+          );
+        border-right: 1px solid var(--forest);
+        opacity: 0.14;
+        pointer-events: none;
       }
 
       .hero::after {
         position: absolute;
-        right: -10rem;
         bottom: -12rem;
-        width: 30rem;
-        height: 30rem;
+        left: -11rem;
+        width: 18rem;
+        height: 21rem;
         content: "";
-        background: repeating-radial-gradient(
-          circle at center,
-          transparent 0,
-          transparent 1.9rem,
-          rgba(240, 189, 99, 0.15) 2rem,
-          transparent 2.1rem
-        );
-        transform: rotate(-18deg);
+        border: 1px solid var(--forest);
+        border-radius: 48% 52% 42% 58% / 42% 40% 60% 58%;
+        opacity: 0.1;
         pointer-events: none;
       }
 
@@ -93,24 +119,31 @@
         align-items: center;
         justify-content: space-between;
         gap: 0.5rem 1rem;
-        margin-bottom: clamp(1.5rem, 4vw, 3.5rem);
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--line-soft);
       }
 
       .eyebrow,
       .section-label {
         margin: 0;
-        color: var(--gold);
-        font-size: 0.72rem;
-        font-weight: 800;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
+        color: #914a36;
+        font-size: 0.78rem;
+        font-weight: 650;
+        letter-spacing: 0.04em;
+        text-transform: none;
       }
 
-      .hero-bar .location {
+      .eyebrow {
+        color: var(--forest);
+      }
+
+      .location {
         margin: 0;
-        color: #d6e0d9;
-        font-size: 0.9rem;
-        font-weight: 650;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        text-transform: none;
       }
 
       h1,
@@ -123,183 +156,247 @@
       h1,
       h2,
       h3 {
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--display);
+        font-weight: 500;
+      }
+
+      .brand-lockup {
+        max-width: 48rem;
+        margin: clamp(2rem, 6vw, 4.5rem) auto 0;
+        text-align: center;
+      }
+
+      .brand-initials {
+        margin: 0;
+        color: var(--forest);
+        font-family: var(--display);
+        font-size: clamp(5.2rem, 18vw, 10.5rem);
+        font-weight: 500;
+        line-height: 0.67;
+        letter-spacing: -0.13em;
+        transform: translateX(-0.04em);
+      }
+
+      .brand-rule {
+        width: min(85%, 34rem);
+        height: 1px;
+        margin: clamp(1.5rem, 4vw, 2.5rem) auto clamp(1.2rem, 3vw, 1.8rem);
+        background: var(--forest);
       }
 
       h1 {
-        margin-bottom: 1.25rem;
-        color: #fffdf8;
-        font-size: clamp(1.8rem, 9.6vw, 5.25rem);
+        margin-bottom: 0.9rem;
+        color: var(--forest);
+        font-family: var(--sans);
+        font-size: clamp(1.35rem, 4.3vw, 2.45rem);
         font-weight: 700;
-        line-height: 0.98;
-        letter-spacing: -0.06em;
-        white-space: nowrap;
+        letter-spacing: 0.1em;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .tagline {
+        margin: 0;
+        color: var(--forest);
+        font-size: clamp(0.76rem, 2.2vw, 0.98rem);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
       }
 
       .hero-content {
         display: grid;
-        gap: 1.5rem;
-        align-items: end;
+        gap: 1.75rem;
+        align-items: center;
+        max-width: 55rem;
+        margin: clamp(2rem, 5vw, 3.25rem) auto 0;
       }
 
       .intro {
-        max-width: 41rem;
+        max-width: 39rem;
         margin: 0;
-        color: #e9eee9;
-        font-size: clamp(1.08rem, 2.6vw, 1.3rem);
-        line-height: 1.55;
+        color: #274a3e;
+        font-size: clamp(1.12rem, 2.5vw, 1.36rem);
+        font-weight: 400;
+        line-height: 1.5;
       }
 
       .price-callout {
         display: grid;
-        gap: 0.15rem;
-        align-self: stretch;
-        min-width: 11rem;
-        padding: 1rem 1.15rem;
-        color: var(--forest-dark);
-        background: var(--gold);
-        border-radius: 0.75rem;
-        box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.15);
-        font-size: 0.84rem;
-        font-weight: 750;
-        line-height: 1.25;
+        place-items: center;
+        width: 9rem;
+        aspect-ratio: 1;
+        margin: 0 auto;
+        padding: 1rem;
+        color: #1c4033;
+        background: #fffefa;
+        border: 1px solid rgba(33, 72, 59, 0.58);
+        border-radius: 50%;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        line-height: 1.2;
+        text-align: center;
+        text-transform: none;
       }
 
       .price-callout strong {
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 2.4rem;
-        line-height: 1;
+        display: block;
+        margin: 0.15rem 0;
+        font-family: var(--display);
+        font-size: 2.95rem;
+        font-weight: 500;
+        letter-spacing: -0.06em;
+        line-height: 0.9;
       }
 
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.75rem;
-        margin-top: 1.75rem;
+        justify-content: center;
+        gap: 0.8rem;
+        max-width: 42rem;
+        margin: clamp(2.25rem, 5vw, 3.25rem) auto 0;
       }
 
       .button {
         display: inline-flex;
-        flex: 1 1 13rem;
+        flex: 1 1 15rem;
         align-items: center;
         justify-content: center;
-        min-height: 3.25rem;
-        padding: 0.8rem 1rem;
-        color: var(--forest-dark);
-        background: var(--gold);
-        border: 2px solid var(--gold);
-        border-radius: 0.55rem;
-        font-size: 0.95rem;
-        font-weight: 800;
-        line-height: 1.2;
+        min-height: 3.45rem;
+        padding: 0.85rem 1.1rem;
+        color: #173f32;
+        background: #e4b294;
+        border: 1px solid #e4b294;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 1.35;
         text-align: center;
         text-decoration: none;
-        overflow-wrap: anywhere;
-        transition:
-          background 150ms ease,
-          color 150ms ease,
-          transform 150ms ease;
+        text-transform: none;
+        transition: background 150ms ease, color 150ms ease;
       }
 
       .button:hover {
-        color: #fffdf8;
-        background: var(--copper);
-        border-color: var(--copper);
-        transform: translateY(-2px);
+        color: var(--ivory);
+        background: var(--forest);
+        border-color: var(--forest);
       }
 
       .button.secondary {
-        color: #fffdf8;
-        background: transparent;
-        border-color: rgba(255, 253, 248, 0.58);
+        color: var(--forest);
+        background: #fffefa;
+        border-color: rgba(33, 72, 59, 0.56);
       }
 
       .button.secondary:hover {
-        color: var(--forest-dark);
-        background: #fffdf8;
-        border-color: #fffdf8;
+        color: var(--ivory);
+        background: var(--forest);
       }
 
       .button:focus-visible {
-        outline: 3px solid #fffdf8;
+        outline: 3px solid var(--forest);
         outline-offset: 3px;
       }
 
       main {
         display: grid;
-        gap: 1rem;
-        margin-top: 1rem;
+        gap: clamp(0.9rem, 2vw, 1.35rem);
+        padding: clamp(0.9rem, 2.5vw, 1.75rem);
+        background: #f4f0e6;
       }
 
       .section {
-        padding: clamp(1.5rem, 4vw, 2.5rem);
-        background: var(--paper);
-        border: 1px solid rgba(123, 102, 72, 0.18);
-        border-radius: 1rem;
-        box-shadow: 0 0.35rem 1.2rem rgba(29, 43, 35, 0.045);
+        padding: clamp(2rem, 5vw, 4rem) clamp(1.35rem, 4.5vw, 3.75rem);
+        background: var(--ivory);
+        border: 1px solid var(--line-soft);
+        border-radius: 0.85rem;
+        box-shadow: 0 0.45rem 1.4rem rgba(20, 55, 44, 0.045);
+      }
+
+      .soft-section {
+        background: var(--sage);
       }
 
       .section-label {
-        margin-bottom: 0.45rem;
-        color: var(--copper);
+        margin-bottom: 0.55rem;
       }
 
       h2 {
-        margin-bottom: 1rem;
-        font-size: clamp(1.7rem, 4.5vw, 2.55rem);
+        max-width: 42rem;
+        margin-bottom: 1.1rem;
+        color: var(--forest);
+        font-size: clamp(2rem, 5vw, 3.35rem);
         line-height: 1.08;
-        letter-spacing: -0.035em;
+        letter-spacing: -0.05em;
+      }
+
+      h3 {
+        color: var(--forest);
       }
 
       .section-copy {
         max-width: 42rem;
-        margin-bottom: 1.25rem;
-        color: var(--muted);
+        margin-bottom: 1.8rem;
+        color: #3d584d;
+        font-size: 1.08rem;
+        line-height: 1.65;
       }
 
       .service-card {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1.25rem;
-        background: #f2e6cd;
-        border-left: 0.35rem solid var(--copper);
-        border-radius: 0.5rem;
+        display: grid;
+        gap: 1.25rem;
+        align-items: center;
+        padding: clamp(1.35rem, 3vw, 2rem);
+        background: #fffdf9;
+        border: 1px solid var(--line-soft);
+        border-left: 0.35rem solid var(--warm);
+        border-radius: 0.75rem;
       }
 
       .service-card h3 {
-        margin: 0 0 0.2rem;
-        font-size: 1.25rem;
-        line-height: 1.15;
+        margin: 0 0 0.35rem;
+        font-size: clamp(1.7rem, 3.5vw, 2.25rem);
+        line-height: 1.05;
       }
 
       .service-card p {
         margin: 0;
-        color: #46564f;
-        font-size: 0.95rem;
+        color: #3d584d;
+        font-size: 1rem;
+        line-height: 1.55;
       }
 
       .service-price {
-        flex: 0 0 auto;
-        color: var(--forest);
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(2rem, 7vw, 3rem);
-        font-weight: 700;
-        line-height: 1;
+        display: grid;
+        place-items: center;
+        width: 6.25rem;
+        aspect-ratio: 1;
+        color: var(--ivory);
+        background: var(--warm);
+        border: 0;
+        border-radius: 50%;
+        font-family: var(--display);
+        font-size: 2.8rem;
+        font-weight: 500;
         letter-spacing: -0.06em;
+        line-height: 1;
       }
 
       .note {
         margin: 1rem 0 0;
         color: var(--muted);
-        font-size: 0.91rem;
+        font-family: var(--serif);
+        font-size: 0.97rem;
+        line-height: 1.55;
       }
 
       .check-list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-        gap: 0.1rem 1.5rem;
+        gap: 0.7rem;
         padding: 0;
         margin: 0;
         list-style: none;
@@ -308,18 +405,31 @@
       .check-list li {
         position: relative;
         min-width: 0;
-        padding: 0.8rem 0 0.8rem 1.5rem;
-        border-bottom: 1px solid var(--line);
+        padding: 0.95rem 1rem 0.95rem 3rem;
+        background: rgba(252, 250, 245, 0.7);
+        border: 1px solid var(--line-soft);
+        border-radius: 0.55rem;
+        color: #274a3e;
+        font-size: 1rem;
+        line-height: 1.45;
       }
 
       .check-list li::before {
         position: absolute;
-        left: 0;
-        color: var(--copper);
-        content: "+";
-        font-size: 1.25rem;
+        top: 0.86rem;
+        left: 0.9rem;
+        display: grid;
+        place-items: center;
+        width: 1.65rem;
+        aspect-ratio: 1;
+        color: var(--forest);
+        background: #dceadf;
+        border: 0;
+        border-radius: 50%;
+        content: "\2713";
+        font-size: 0.85rem;
         font-weight: 800;
-        line-height: 1.3;
+        line-height: 1;
       }
 
       .details-grid {
@@ -328,28 +438,36 @@
       }
 
       .details-grid > div {
-        padding: 1.2rem;
-        background: #eef3ed;
-        border-radius: 0.65rem;
+        padding: 1.35rem;
+        background: #fffdf9;
+        border: 1px solid var(--line-soft);
+        border-radius: 0.7rem;
       }
 
       .details-grid h3 {
         margin-bottom: 0.45rem;
-        font-size: 1.2rem;
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        font-weight: 650;
+        letter-spacing: 0.02em;
+        text-transform: none;
       }
 
       .details-grid p {
+        max-width: 28rem;
         margin-bottom: 0;
-        color: #405149;
+        color: #3d584d;
+        font-size: 1.02rem;
+        line-height: 1.6;
       }
 
       .image-frame {
         position: relative;
         display: grid;
-        min-height: 16rem;
         overflow: hidden;
-        background: #dce4da;
-        border-radius: 0.75rem;
+        background: var(--sage-deep);
+        border: 0;
+        border-radius: 0.7rem;
       }
 
       .image-frame img {
@@ -365,60 +483,108 @@
         padding: 1.25rem;
         color: var(--forest);
         background:
-          linear-gradient(135deg, rgba(255, 253, 248, 0.42), transparent),
-          repeating-linear-gradient(
-            -45deg,
-            #e9dfca,
-            #e9dfca 0.7rem,
-            #e2d3b7 0.7rem,
-            #e2d3b7 1.4rem
-          );
-        font-size: 0.82rem;
+          linear-gradient(135deg, transparent 49.5%, var(--line-soft) 50%, transparent 50.5%),
+          linear-gradient(45deg, transparent 49.5%, var(--line-soft) 50%, transparent 50.5%),
+          var(--sage-deep);
+        font-size: 0.75rem;
         font-weight: 800;
-        letter-spacing: 0.08em;
-        line-height: 1.4;
+        letter-spacing: 0.12em;
+        line-height: 1.5;
         text-align: center;
         text-transform: uppercase;
       }
 
-      .team-grid {
+      .team-grid,
+      .gallery-grid {
         display: grid;
-        gap: 1rem;
+        gap: 1.15rem;
       }
 
-      .team-card {
+      .team-card,
+      .gallery-card {
+        margin: 0;
         overflow: hidden;
-        background: #edf2eb;
+        background: #fffdf9;
+        border: 1px solid var(--line-soft);
         border-radius: 0.75rem;
+        box-shadow: 0 0.35rem 1rem rgba(20, 55, 44, 0.05);
       }
 
       .team-card .image-frame {
-        min-height: clamp(15rem, 50vw, 22rem);
+        aspect-ratio: 4 / 3;
+        border: 0;
+        border-bottom: 1px solid var(--line-soft);
         border-radius: 0;
       }
 
       .team-card-content {
-        padding: 1rem 1.1rem 1.15rem;
+        padding: 1.15rem 1.2rem 1.25rem;
       }
 
       .team-card h3 {
-        margin-bottom: 0.15rem;
-        font-size: 1.35rem;
+        margin-bottom: 0.1rem;
+        font-size: 1.9rem;
+        line-height: 1;
       }
 
       .team-card p {
         margin: 0;
         color: var(--muted);
-        font-size: 0.95rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        text-transform: none;
+      }
+
+      .flagship-section,
+      .booking-section {
+        position: relative;
+        overflow: hidden;
+        color: var(--forest);
+        background: linear-gradient(135deg, var(--sage) 0%, #fffdf8 100%);
+        border: 1px solid rgba(33, 72, 59, 0.25);
+      }
+
+      .flagship-section::after,
+      .booking-section::after {
+        position: absolute;
+        right: -7rem;
+        bottom: -12rem;
+        width: 21rem;
+        height: 21rem;
+        border: 1px solid rgba(33, 72, 59, 0.12);
+        border-radius: 50%;
+        content: "";
+        pointer-events: none;
+      }
+
+      .flagship-section > *,
+      .booking-section > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .flagship-section .section-label,
+      .booking-section .section-label {
+        color: #914a36;
+      }
+
+      .flagship-section h2,
+      .booking-section h2,
+      .flagship-section h3 {
+        color: var(--forest);
       }
 
       .flagship-layout {
         display: grid;
-        gap: 1.25rem;
+        gap: clamp(1.4rem, 3vw, 2.5rem);
       }
 
       .flagship-layout .image-frame {
-        min-height: clamp(18rem, 60vw, 29rem);
+        aspect-ratio: 4 / 3;
+        background: var(--sage-deep);
+        border: 1px solid rgba(33, 72, 59, 0.38);
+        border-radius: 0.7rem;
       }
 
       .flagship-copy {
@@ -426,32 +592,30 @@
       }
 
       .flagship-copy h3 {
-        margin-bottom: 0.65rem;
-        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        margin-bottom: 0.8rem;
+        font-size: clamp(1.85rem, 4vw, 2.7rem);
         line-height: 1.1;
       }
 
       .flagship-copy p {
-        color: var(--muted);
+        color: #36564a;
+        font-size: 1.04rem;
+        line-height: 1.7;
       }
 
-      .flagship-copy p:last-child {
-        margin-bottom: 0;
+      .flagship-copy .note {
+        color: var(--forest);
       }
 
-      .gallery-grid {
-        display: grid;
-        gap: 1rem;
-      }
-
-      .gallery-card {
-        overflow: hidden;
-        background: #eef3ed;
-        border-radius: 0.75rem;
+      .flagship-copy a {
+        text-decoration-color: rgba(33, 72, 59, 0.45);
+        text-underline-offset: 0.2em;
       }
 
       .gallery-card .image-frame {
-        min-height: clamp(15rem, 48vw, 23rem);
+        aspect-ratio: 4 / 5;
+        border: 0;
+        border-bottom: 1px solid var(--line-soft);
         border-radius: 0;
       }
 
@@ -460,91 +624,113 @@
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
-        padding: 0.9rem 1rem;
+        padding: 1rem 1.1rem;
       }
 
       .gallery-caption strong {
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 1.2rem;
+        color: var(--forest);
+        font-family: var(--display);
+        font-size: 1.75rem;
+        font-weight: 500;
+        line-height: 1;
       }
 
       .gallery-caption span {
-        color: var(--copper);
-        font-size: 0.75rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-align: right;
+        text-transform: none;
       }
 
       .booking-section {
-        color: #fffdf8;
-        background: var(--forest);
-        border: 0;
-      }
-
-      .booking-section h2,
-      .booking-section .section-copy {
-        color: inherit;
+        border-bottom: 0;
       }
 
       .booking-section .section-copy {
         max-width: 38rem;
-        color: #d6e0d9;
-      }
-
-      .booking-section .section-label {
-        color: var(--gold);
+        color: #36564a;
       }
 
       .booking-section .button {
         width: 100%;
-        max-width: 20rem;
+        max-width: 22rem;
+        color: #173f32;
+        background: #e4b294;
+        border-color: #e4b294;
+        border-radius: 0.5rem;
+      }
+
+      .booking-section .button:hover {
+        color: var(--ivory);
+        background: var(--forest);
+        border-color: var(--forest);
       }
 
       .disclaimer {
-        padding: 1.2rem 1.3rem;
-        color: #44544c;
-        background: #ece6da;
-        border-left: 0.3rem solid var(--copper);
-        border-radius: 0.4rem;
+        padding: clamp(1.8rem, 4vw, 2.75rem) clamp(1.4rem, 4.5vw, 3.75rem);
+        background: var(--ivory-deep);
+        border: 0;
+        border-radius: 0.75rem;
       }
 
       .disclaimer h2 {
-        margin-bottom: 0.4rem;
-        font-size: 1.2rem;
+        margin-bottom: 0.55rem;
+        font-family: var(--sans);
+        font-size: 0.86rem;
+        font-weight: 650;
+        letter-spacing: 0.03em;
+        text-transform: none;
       }
 
       .disclaimer p {
+        max-width: 48rem;
         margin: 0;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.65;
       }
 
       footer {
-        padding: 1.25rem 0 0;
-        color: var(--muted);
-        font-size: 0.88rem;
+        margin-top: -0.1rem;
+        padding: 1.45rem;
+        color: var(--forest);
+        background: #e5eee4;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
         text-align: center;
+        text-transform: none;
       }
 
-      @media (min-width: 42rem) {
-        .page {
-          padding-top: 2rem;
+      @media (min-width: 38rem) {
+        .service-card {
+          grid-template-columns: minmax(0, 1fr) auto;
         }
 
-        .hero-content {
-          grid-template-columns: minmax(0, 1fr) 11.5rem;
-        }
-
-        .price-callout {
-          align-self: end;
+        .check-list {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .details-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 1.5rem;
         }
 
         .team-grid,
         .gallery-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 48rem) {
+        .hero-content {
+          grid-template-columns: minmax(0, 1fr) auto;
+        }
+
+        .price-callout {
+          margin: 0;
         }
 
         .flagship-layout {
@@ -553,14 +739,25 @@
         }
       }
 
-      @media (max-width: 25rem) {
-        .hero-bar .location {
+      @media (max-width: 28rem) {
+        .page {
+          width: 100%;
+          margin: 0;
+          border-right: 0;
+          border-left: 0;
+        }
+
+        .location {
           display: none;
         }
 
-        .service-card {
-          gap: 0.6rem;
-          padding: 1rem;
+        h1 {
+          font-size: 1.08rem;
+          letter-spacing: 0.19em;
+        }
+
+        .tagline {
+          letter-spacing: 0.15em;
         }
       }
 
@@ -579,11 +776,16 @@
     <div class="page">
       <header class="hero">
         <div class="hero-bar">
-          <p class="eyebrow">Guitar Care</p>
+          <p class="eyebrow">DB Guitar Setup</p>
           <p class="location">Middle Tennessee</p>
         </div>
 
-        <h1>DB Guitar Setup</h1>
+        <div class="brand-lockup">
+          <p class="brand-initials" aria-hidden="true">DB</p>
+          <div class="brand-rule" aria-hidden="true"></div>
+          <h1>Guitar Setup</h1>
+          <p class="tagline">Play Better. Sound Better.</p>
+        </div>
 
         <div class="hero-content">
           <p class="intro">
@@ -601,17 +803,17 @@
           <a
             class="button"
             href="sms:+19512182663?body=Hi%20DB%20Guitar%20Setup%2C%20I%27d%20like%20to%20schedule%20a%20setup."
-            >Text&nbsp;Us:&nbsp;+1&nbsp;951&nbsp;218&nbsp;2663</a
+            >Text to book a setup</a
           >
           <a class="button secondary" href="mailto:dbguitarsetup@gmail.com"
-            >Email: dbguitarsetup@gmail.com</a
+            >Email us</a
           >
         </div>
       </header>
 
       <main>
         <section class="section" aria-labelledby="services-title">
-          <p class="section-label">The Service</p>
+          <p class="section-label">Precision Setups</p>
           <h2 id="services-title">One complete setup. No guesswork.</h2>
           <p class="section-copy">
             We set up acoustic guitars, electric guitars, and basses with the
@@ -628,8 +830,8 @@
           <p class="note">Parts and strings are additional unless noted.</p>
         </section>
 
-        <section class="section" aria-labelledby="includes-title">
-          <p class="section-label">Included</p>
+        <section class="section soft-section" aria-labelledby="includes-title">
+          <p class="section-label">Detail Oriented</p>
           <h2 id="includes-title">Every setup covers the details.</h2>
           <ul class="check-list">
             <li>Fret prep and fret polish</li>
@@ -644,7 +846,7 @@
           </ul>
         </section>
 
-        <section class="section" aria-labelledby="process-title">
+        <section class="section soft-section" aria-labelledby="process-title">
           <p class="section-label">The Process</p>
           <h2 id="process-title">Simple from drop-off to pick-up.</h2>
           <div class="details-grid">
@@ -680,10 +882,7 @@
                   alt="Drew of DB Guitar Setup"
                   loading="lazy"
                   decoding="async"
-                  onerror="
-                    this.hidden = true;
-                    this.nextElementSibling.hidden = false;
-                  "
+                  onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
                 >
                 <div class="image-placeholder" hidden>
                   Photo of Drew<br>Upload: images/drew.jpg
@@ -697,17 +896,16 @@
 
             <article class="team-card">
               <div class="image-frame">
-                <!-- Upload your photo as images/bradley.jpg to replace this placeholder. -->
                 <img
                   src="images/bradley.jpg"
                   alt="Bradley of DB Guitar Setup"
                   loading="lazy"
                   decoding="async"
-                  onerror="
-                    this.hidden = true;
-                    this.nextElementSibling.hidden = false;
-                  "
+                  onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
                 >
+                <div class="image-placeholder" hidden>
+                  Photo of Bradley<br>Upload: images/bradley.jpg
+                </div>
               </div>
               <div class="team-card-content">
                 <h3>Bradley</h3>
@@ -717,22 +915,24 @@
           </div>
         </section>
 
-        <section class="section" aria-labelledby="flagship-title">
+        <section
+          class="section flagship-section"
+          aria-labelledby="flagship-title"
+        >
           <p class="section-label">Featured Instrument</p>
           <h2 id="flagship-title">Our flagship guitar.</h2>
           <div class="flagship-layout">
             <div class="image-frame">
-              <!-- Upload the flagship guitar photo as images/flagship-guitar.jpg. -->
               <img
                 src="images/flagship-guitar.jpg"
                 alt="2012 Gibson Les Paul Studio Satin with custom pyrography artwork"
                 loading="lazy"
                 decoding="async"
-                onerror="
-                  this.hidden = true;
-                  this.nextElementSibling.hidden = false;
-                "
+                onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
               >
+              <div class="image-placeholder" hidden>
+                Flagship guitar photo<br>Upload: images/flagship-guitar.jpg
+              </div>
             </div>
             <div class="flagship-copy">
               <h3>2012 Gibson Les Paul Studio Satin</h3>
@@ -769,17 +969,16 @@
           <div class="gallery-grid">
             <figure class="gallery-card">
               <div class="image-frame">
-                <!-- Upload the before photo as images/work-before.jpg. -->
                 <img
                   src="images/work-before.jpg"
                   alt="Guitar before service"
                   loading="lazy"
                   decoding="async"
-                  onerror="
-                    this.hidden = true;
-                    this.nextElementSibling.hidden = false;
-                  "
+                  onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
                 >
+                <div class="image-placeholder" hidden>
+                  Before photo<br>Upload: images/work-before.jpg
+                </div>
               </div>
               <figcaption class="gallery-caption">
                 <strong>Before</strong>
@@ -789,17 +988,16 @@
 
             <figure class="gallery-card">
               <div class="image-frame">
-                <!-- Upload the after photo as images/work-after.jpg. -->
                 <img
                   src="images/work-after.jpg"
                   alt="Guitar after service"
                   loading="lazy"
                   decoding="async"
-                  onerror="
-                    this.hidden = true;
-                    this.nextElementSibling.hidden = false;
-                  "
+                  onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
                 >
+                <div class="image-placeholder" hidden>
+                  After photo<br>Upload: images/work-after.jpg
+                </div>
               </div>
               <figcaption class="gallery-caption">
                 <strong>After</strong>
@@ -816,13 +1014,13 @@
           <p class="section-label">Book a Setup</p>
           <h2 id="booking-title">Ready to play better?</h2>
           <p class="section-copy">
-            Text or call us to schedule your guitar setup. We'll help get your
-            guitar playing its best in no time.
+            Text us to schedule your guitar setup. We'll help get your guitar
+            playing its best in no time.
           </p>
           <a
             class="button"
             href="sms:+19512182663?body=Hi%20DB%20Guitar%20Setup%2C%20I%27d%20like%20to%20schedule%20a%20setup."
-            >Text&nbsp;Us&nbsp;to&nbsp;Schedule</a
+            >Text to book a setup</a
           >
         </section>
 
