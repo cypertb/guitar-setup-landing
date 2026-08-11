@@ -343,6 +343,139 @@
         color: #405149;
       }
 
+      .image-frame {
+        position: relative;
+        display: grid;
+        min-height: 16rem;
+        overflow: hidden;
+        background: #dce4da;
+        border-radius: 0.75rem;
+      }
+
+      .image-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .image-placeholder {
+        display: grid;
+        place-items: center;
+        min-height: inherit;
+        padding: 1.25rem;
+        color: var(--forest);
+        background:
+          linear-gradient(135deg, rgba(255, 253, 248, 0.42), transparent),
+          repeating-linear-gradient(
+            -45deg,
+            #e9dfca,
+            #e9dfca 0.7rem,
+            #e2d3b7 0.7rem,
+            #e2d3b7 1.4rem
+          );
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 1.4;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .team-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .team-card {
+        overflow: hidden;
+        background: #edf2eb;
+        border-radius: 0.75rem;
+      }
+
+      .team-card .image-frame {
+        min-height: clamp(15rem, 50vw, 22rem);
+        border-radius: 0;
+      }
+
+      .team-card-content {
+        padding: 1rem 1.1rem 1.15rem;
+      }
+
+      .team-card h3 {
+        margin-bottom: 0.15rem;
+        font-size: 1.35rem;
+      }
+
+      .team-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .flagship-layout {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .flagship-layout .image-frame {
+        min-height: clamp(18rem, 60vw, 29rem);
+      }
+
+      .flagship-copy {
+        align-self: center;
+      }
+
+      .flagship-copy h3 {
+        margin-bottom: 0.65rem;
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        line-height: 1.1;
+      }
+
+      .flagship-copy p {
+        color: var(--muted);
+      }
+
+      .flagship-copy p:last-child {
+        margin-bottom: 0;
+      }
+
+      .gallery-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .gallery-card {
+        overflow: hidden;
+        background: #eef3ed;
+        border-radius: 0.75rem;
+      }
+
+      .gallery-card .image-frame {
+        min-height: clamp(15rem, 48vw, 23rem);
+        border-radius: 0;
+      }
+
+      .gallery-caption {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.9rem 1rem;
+      }
+
+      .gallery-caption strong {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.2rem;
+      }
+
+      .gallery-caption span {
+        color: var(--copper);
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
       .booking-section {
         color: #fffdf8;
         background: var(--forest);
@@ -407,6 +540,16 @@
 
         .details-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .team-grid,
+        .gallery-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .flagship-layout {
+          grid-template-columns: minmax(0, 1.2fr) minmax(15rem, 0.8fr);
+          align-items: center;
         }
       }
 
@@ -517,6 +660,124 @@
                 begins. Typical turnaround is 1-3 days.
               </p>
             </div>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="team-title">
+          <p class="section-label">The Team</p>
+          <h2 id="team-title">The hands behind the setup.</h2>
+          <p class="section-copy">
+            Meet the people caring for your instrument from drop-off to pick-up.
+          </p>
+          <div class="team-grid">
+            <article class="team-card">
+              <div class="image-frame">
+                <!-- Upload your photo as images/drew.jpg to replace this placeholder. -->
+                <img
+                  src="images/drew.jpg"
+                  alt="Drew of DB Guitar Setup"
+                  onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+                >
+                <div class="image-placeholder" hidden>
+                  Photo of Drew<br>Upload: images/drew.jpg
+                </div>
+              </div>
+              <div class="team-card-content">
+                <h3>Drew</h3>
+                <p>DB Guitar Setup</p>
+              </div>
+            </article>
+
+            <article class="team-card">
+              <div class="image-frame">
+                <!-- Upload your photo as images/bradley.jpg to replace this placeholder. -->
+                <img
+                  src="images/bradley.jpg"
+                  alt="Bradley of DB Guitar Setup"
+                  onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+                >
+                <div class="image-placeholder" hidden>
+                  Photo of Bradley<br>Upload: images/bradley.jpg
+                </div>
+              </div>
+              <div class="team-card-content">
+                <h3>Bradley</h3>
+                <p>DB Guitar Setup</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="flagship-title">
+          <p class="section-label">Featured Instrument</p>
+          <h2 id="flagship-title">Our flagship guitar.</h2>
+          <div class="flagship-layout">
+            <div class="image-frame">
+              <!-- Upload the flagship guitar photo as images/flagship-guitar.jpg. -->
+              <img
+                src="images/flagship-guitar.jpg"
+                alt="DB Guitar Setup flagship guitar"
+                onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+              >
+              <div class="image-placeholder" hidden>
+                Flagship guitar photo<br>Upload: images/flagship-guitar.jpg
+              </div>
+            </div>
+            <div class="flagship-copy">
+              <h3>[Guitar Name or Model]</h3>
+              <p>
+                Add the story of the guitar here: why it matters to you, what
+                makes it special, or the work that brought it back to life.
+              </p>
+              <p class="note">
+                Update the name and description when you upload the photo.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="work-title">
+          <p class="section-label">Recent Work</p>
+          <h2 id="work-title">See the difference a careful setup makes.</h2>
+          <p class="section-copy">
+            A before-and-after look at a guitar we've brought back into playing shape.
+          </p>
+          <div class="gallery-grid">
+            <figure class="gallery-card">
+              <div class="image-frame">
+                <!-- Upload the before photo as images/work-before.jpg. -->
+                <img
+                  src="images/work-before.jpg"
+                  alt="Guitar before service"
+                  onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+                >
+                <div class="image-placeholder" hidden>
+                  Before photo<br>Upload: images/work-before.jpg
+                </div>
+              </div>
+              <figcaption class="gallery-caption">
+                <strong>Before</strong>
+                <span>Before service</span>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery-card">
+              <div class="image-frame">
+                <!-- Upload the after photo as images/work-after.jpg. -->
+                <img
+                  src="images/work-after.jpg"
+                  alt="Guitar after service"
+                  onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+                >
+                <div class="image-placeholder" hidden>
+                  After photo<br>Upload: images/work-after.jpg
+                </div>
+              </div>
+              <figcaption class="gallery-caption">
+                <strong>After</strong>
+                <span>After service</span>
+              </figcaption>
+            </figure>
           </div>
         </section>
 
