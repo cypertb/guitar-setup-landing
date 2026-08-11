@@ -10,6 +10,10 @@ automatically show each photo after you commit and push it to GitHub.
 | `flagship-guitar.jpg` | Featured flagship guitar |
 | `work-before.jpg` | Previous work, before photo |
 | `work-after.jpg` | Previous work, after photo |
+| `db-guitar-setup-qr.png` | Printable QR code for the live site |
 
 Use landscape photos where possible. JPG or WebP files keep the site fast; if
 you use WebP, update the matching `.jpg` filename in `../index.html` too.
+
+The current QR code is also available at:
+`https://cypertb.github.io/guitar-setup-landing/images/db-guitar-setup-qr.png`
