@@ -21,9 +21,12 @@
         --muted: #52665c;
         --line: rgba(33, 72, 59, 0.42);
         --line-soft: rgba(33, 72, 59, 0.16);
-        --display: Didot, "Bodoni 72", "Bodoni MT", "Iowan Old Style", Georgia, serif;
-        --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-        --sans: "Avenir Next", Avenir, "Gill Sans", "Segoe UI", Arial, sans-serif;
+        --display:
+          Didot, "Bodoni 72", "Bodoni MT", "Iowan Old Style", Georgia, serif;
+        --serif:
+          "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        --sans:
+          "Avenir Next", Avenir, "Gill Sans", "Segoe UI", Arial, sans-serif;
       }
 
       * {
@@ -277,7 +280,9 @@
         text-align: center;
         text-decoration: none;
         text-transform: none;
-        transition: background 150ms ease, color 150ms ease;
+        transition:
+          background 150ms ease,
+          color 150ms ease;
       }
 
       .button:hover {
@@ -483,8 +488,18 @@
         padding: 1.25rem;
         color: var(--forest);
         background:
-          linear-gradient(135deg, transparent 49.5%, var(--line-soft) 50%, transparent 50.5%),
-          linear-gradient(45deg, transparent 49.5%, var(--line-soft) 50%, transparent 50.5%),
+          linear-gradient(
+            135deg,
+            transparent 49.5%,
+            var(--line-soft) 50%,
+            transparent 50.5%
+          ),
+          linear-gradient(
+            45deg,
+            transparent 49.5%,
+            var(--line-soft) 50%,
+            transparent 50.5%
+          ),
           var(--sage-deep);
         font-size: 0.75rem;
         font-weight: 800;
@@ -666,6 +681,60 @@
         color: var(--ivory);
         background: var(--forest);
         border-color: var(--forest);
+      }
+
+      .tribute-section {
+        position: relative;
+        overflow: hidden;
+        background: #fffdf8;
+      }
+
+      .tribute-section::before {
+        position: absolute;
+        top: -5rem;
+        right: -5rem;
+        width: 15rem;
+        height: 15rem;
+        border: 1px solid rgba(33, 72, 59, 0.12);
+        border-radius: 50%;
+        content: "";
+      }
+
+      .tribute-section > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .tribute-copy {
+        max-width: 42rem;
+        margin: 0;
+        color: #36564a;
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+
+      .tribute-names {
+        margin: 1.25rem 0 0.5rem;
+        color: var(--forest);
+        font-family: var(--display);
+        font-size: clamp(1.8rem, 4vw, 2.7rem);
+        line-height: 1.1;
+      }
+
+      .tribute-link {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 1.25rem;
+        color: var(--forest);
+        font-size: 1rem;
+        font-weight: 650;
+        text-decoration-color: #b96748;
+        text-decoration-thickness: 0.12em;
+        text-underline-offset: 0.18em;
+      }
+
+      .tribute-link:hover {
+        color: #914a36;
       }
 
       .disclaimer {
@@ -882,11 +951,11 @@
                   alt="Drew of DB Guitar Setup"
                   loading="lazy"
                   decoding="async"
-                  onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+                  onerror="
+                    this.hidden = true;
+                    this.nextElementSibling.hidden = false;
+                  "
                 >
-                <div class="image-placeholder" hidden>
-                  Photo of Drew<br>Upload: images/drew.jpg
-                </div>
               </div>
               <div class="team-card-content">
                 <h3>Drew</h3>
@@ -901,7 +970,10 @@
                   alt="Bradley of DB Guitar Setup"
                   loading="lazy"
                   decoding="async"
-                  onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+                  onerror="
+                    this.hidden = true;
+                    this.nextElementSibling.hidden = false;
+                  "
                 >
                 <div class="image-placeholder" hidden>
                   Photo of Bradley<br>Upload: images/bradley.jpg
@@ -928,7 +1000,10 @@
                 alt="2012 Gibson Les Paul Studio Satin with custom pyrography artwork"
                 loading="lazy"
                 decoding="async"
-                onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+                onerror="
+                  this.hidden = true;
+                  this.nextElementSibling.hidden = false;
+                "
               >
               <div class="image-placeholder" hidden>
                 Flagship guitar photo<br>Upload: images/flagship-guitar.jpg
@@ -974,7 +1049,10 @@
                   alt="Guitar before service"
                   loading="lazy"
                   decoding="async"
-                  onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+                  onerror="
+                    this.hidden = true;
+                    this.nextElementSibling.hidden = false;
+                  "
                 >
                 <div class="image-placeholder" hidden>
                   Before photo<br>Upload: images/work-before.jpg
@@ -993,7 +1071,10 @@
                   alt="Guitar after service"
                   loading="lazy"
                   decoding="async"
-                  onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+                  onerror="
+                    this.hidden = true;
+                    this.nextElementSibling.hidden = false;
+                  "
                 >
                 <div class="image-placeholder" hidden>
                   After photo<br>Upload: images/work-after.jpg
@@ -1021,6 +1102,27 @@
             class="button"
             href="sms:+19512182663?body=Hi%20DB%20Guitar%20Setup%2C%20I%27d%20like%20to%20schedule%20a%20setup."
             >Text to book a setup</a
+          >
+        </section>
+
+        <section class="section tribute-section" aria-labelledby="tribute-title">
+          <p class="section-label">With gratitude</p>
+          <h2 id="tribute-title">A thank-you to the people who taught us.</h2>
+          <p class="tribute-copy">
+            We learned everything we know from the generosity, instruction, and
+            example of Setup2Worship.
+          </p>
+          <p class="tribute-names">Steve and Joanne</p>
+          <p class="tribute-copy">
+            Their work has helped us care for instruments with more knowledge,
+            intention, and respect for the people who play them.
+          </p>
+          <a
+            class="tribute-link"
+            href="https://setup2worship.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Visit Setup2Worship.com</a
           >
         </section>
 
