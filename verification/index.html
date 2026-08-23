@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Manage DB Guitar Setup text message preferences."
+    >
+    <title>Text Preferences | DB Guitar Setup</title>
+    <style>
+      :root {
+        --forest: #21483b;
+        --ivory: #fcfaf5;
+        --ivory-deep: #e9e4d8;
+        --sage: #edf3ea;
+        --warm: #b96748;
+        --muted: #52665c;
+        --line: rgba(33, 72, 59, 0.2);
+        --display: Didot, "Bodoni 72", "Bodoni MT", "Iowan Old Style", Georgia, serif;
+        --sans: "Avenir Next", Avenir, "Gill Sans", "Segoe UI", Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 20rem;
+        min-height: 100vh;
+        margin: 0;
+        color: var(--forest);
+        background:
+          radial-gradient(circle at 100% 0, #dbe7db 0, transparent 30rem),
+          var(--ivory-deep);
+        font-family: var(--sans);
+        line-height: 1.6;
+      }
+
+      .page {
+        width: min(100% - 2rem, 43rem);
+        margin: clamp(1rem, 5vw, 3.5rem) auto;
+        overflow: hidden;
+        background: var(--ivory);
+        border: 1px solid rgba(33, 72, 59, 0.38);
+        border-radius: 0.85rem;
+        box-shadow: 0 1.25rem 3.75rem rgba(20, 55, 44, 0.12);
+      }
+
+      header {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(1.5rem, 5vw, 3rem);
+        background: linear-gradient(135deg, #fefdf9 0%, #edf4eb 100%);
+        border-bottom: 1px solid var(--line);
+      }
+
+      header::after {
+        position: absolute;
+        right: -5rem;
+        bottom: -7rem;
+        width: 15rem;
+        height: 15rem;
+        border: 1px solid rgba(33, 72, 59, 0.15);
+        border-radius: 50%;
+        content: "";
+      }
+
+      header > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .brand-mark {
+        margin: 0;
+        font-family: var(--display);
+        font-size: 2.6rem;
+        font-weight: 500;
+        letter-spacing: -0.12em;
+        line-height: 0.8;
+      }
+
+      .brand-name {
+        margin: 0;
+        font-size: 0.82rem;
+        font-weight: 650;
+        letter-spacing: 0.04em;
+      }
+
+      .eyebrow {
+        margin: clamp(2rem, 5vw, 3rem) 0 0.45rem;
+        color: #914a36;
+        font-size: 0.78rem;
+        font-weight: 650;
+        letter-spacing: 0.04em;
+      }
+
+      h1 {
+        max-width: 10ch;
+        margin: 0;
+        font-family: var(--display);
+        font-size: clamp(2.5rem, 10vw, 4.4rem);
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.98;
+      }
+
+      main {
+        padding: clamp(1.5rem, 5vw, 3rem);
+      }
+
+      .intro {
+        margin: 0 0 1.5rem;
+        color: #36564a;
+        font-size: 1.06rem;
+      }
+
+      .preference-card {
+        padding: 1.25rem;
+        background: var(--sage);
+        border: 1px solid var(--line);
+        border-radius: 0.65rem;
+      }
+
+      .preference-card h2 {
+        margin: 0 0 0.45rem;
+        font-family: var(--display);
+        font-size: 1.75rem;
+        font-weight: 500;
+        line-height: 1.1;
+      }
+
+      .preference-card p {
+        margin: 0;
+        color: #36564a;
+        font-size: 0.95rem;
+      }
+
+      .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.25rem;
+        margin-top: 1rem;
+        padding: 0.8rem 1rem;
+        color: #173f32;
+        background: #e4b294;
+        border: 1px solid #e4b294;
+        border-radius: 0.45rem;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .button:hover {
+        color: var(--ivory);
+        background: var(--forest);
+        border-color: var(--forest);
+      }
+
+      .button.secondary {
+        color: var(--forest);
+        background: #fffefa;
+        border-color: rgba(33, 72, 59, 0.45);
+      }
+
+      .button.secondary:hover {
+        color: var(--ivory);
+        background: var(--forest);
+      }
+
+      .button:focus-visible {
+        outline: 3px solid var(--forest);
+        outline-offset: 3px;
+      }
+
+      .opt-out {
+        margin-top: 1rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .opt-out h2 {
+        margin: 0 0 0.45rem;
+        font-family: var(--display);
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 1.1;
+      }
+
+      .opt-out p,
+      .fine-print {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .fine-print {
+        margin-top: 1.5rem;
+        line-height: 1.55;
+      }
+
+      .help-link {
+        display: inline-block;
+        margin-top: 0.75rem;
+        color: var(--forest);
+        font-size: 0.94rem;
+        font-weight: 600;
+        text-decoration-color: var(--warm);
+        text-decoration-thickness: 0.12em;
+        text-underline-offset: 0.18em;
+      }
+
+      footer {
+        padding: 1.15rem 1.5rem;
+        color: var(--forest);
+        background: #e5eee4;
+        font-size: 0.78rem;
+        text-align: center;
+      }
+
+      @media (max-width: 28rem) {
+        .page {
+          width: 100%;
+          margin: 0;
+          border-right: 0;
+          border-left: 0;
+          border-radius: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="brand">
+          <p class="brand-mark">DB</p>
+          <p class="brand-name">Guitar Setup</p>
+        </div>
+        <p class="eyebrow">Text preferences</p>
+        <h1>Stay in tune with us.</h1>
+      </header>
+
+      <main>
+        <p class="intro">
+          Use this page to manage messages from DB Guitar Setup about your setup,
+          scheduling, pickup, and service updates.
+        </p>
+
+        <section class="preference-card" aria-labelledby="opt-in-title">
+          <h2 id="opt-in-title">Receive text updates</h2>
+          <p>
+            Tap below to open a text addressed to us with <strong>START</strong>
+            already filled in. Send the message to opt in.
+          </p>
+          <a class="button" href="sms:+19512182663?body=START">Text START to opt in</a>
+        </section>
+
+        <section class="opt-out" aria-labelledby="opt-out-title">
+          <h2 id="opt-out-title">No longer want messages?</h2>
+          <p>
+            Tap below to open a text addressed to us with <strong>STOP</strong>
+            already filled in. Send the message to opt out.
+          </p>
+          <a class="button secondary" href="sms:+19512182663?body=STOP">Text STOP to opt out</a>
+        </section>
+
+        <a class="help-link" href="sms:+19512182663?body=HELP">Need help? Text HELP</a>
+
+        <p class="fine-print">
+          By texting START, you agree to receive text messages from DB Guitar Setup.
+          Message frequency varies. Message and data rates may apply. Reply STOP to
+          opt out or HELP for help.
+        </p>
+      </main>
+
+      <footer>DB Guitar Setup · Middle Tennessee · +1 951 218 2663</footer>
+    </div>
+  </body>
+</html>
