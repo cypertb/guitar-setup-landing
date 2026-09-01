@@ -40,6 +40,14 @@ a {
   text-align: center;
 }
 
+.brand-mark {
+  margin: 1.5rem 0 0.5rem;
+  color: var(--forest);
+  font-family: Georgia, serif;
+  font-size: clamp(4rem, 13vw, 8rem);
+  line-height: 0.75;
+}
+
 .eyebrow {
   margin: 0;
   font-size: 0.9rem;
@@ -128,6 +136,41 @@ main {
   font-weight: 700;
 }
 
+.service-card,
+.details-grid > div {
+  padding: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  background: #fff;
+}
+
+.service-card {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  margin: 1rem 0;
+  border-left: 0.28rem solid var(--warm);
+}
+
+.service-card h3,
+.details-grid h3 {
+  margin: 0 0 0.3rem;
+  color: var(--forest);
+}
+
+.service-card p,
+.details-grid p {
+  margin: 0;
+}
+
+.feature {
+  background: #edf3ea;
+}
+
+.feature img {
+  border-radius: 0.5rem;
+}
+
 .grid2 {
   display: grid;
   gap: 1rem;
@@ -169,8 +212,16 @@ footer {
   text-align: center;
 }
 
+footer div + div {
+  margin-top: 0.25rem;
+}
+
 @media (min-width: 42rem) {
   .grid2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-card {
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 }

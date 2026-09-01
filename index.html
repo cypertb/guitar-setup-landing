@@ -12,6 +12,12 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // GitHub Pages serves the SPA fallback for direct links to these routes.
+      if (window.location.pathname !== '/') {
+        window.location.replace(`/#${window.location.pathname}${window.location.search}`)
+      }
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
