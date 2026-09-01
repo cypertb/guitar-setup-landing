@@ -7,17 +7,1202 @@
       name="description"
       content="Thoughtful acoustic, electric, and bass guitar setups in Middle Tennessee."
     />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>DB Guitar Setup | Middle Tennessee</title>
+    <style>
+      :root {
+        --forest: #21483b;
+        --forest-deep: #14372c;
+        --ivory: #fcfaf5;
+        --ivory-deep: #e9e4d8;
+        --sage: #edf3ea;
+        --sage-deep: #dce8dc;
+        --warm: #b96748;
+        --ink: #1b4034;
+        --muted: #52665c;
+        --line: rgba(33, 72, 59, 0.42);
+        --line-soft: rgba(33, 72, 59, 0.16);
+        --display:
+          Didot, "Bodoni 72", "Bodoni MT", "Iowan Old Style", Georgia, serif;
+        --serif:
+          "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        --sans:
+          "Avenir Next", Avenir, "Gill Sans", "Segoe UI", Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 20rem;
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 100% 0, #dbe7db 0, transparent 30rem),
+          var(--ivory-deep);
+        font-family: var(--sans);
+        font-size: 1.03rem;
+        line-height: 1.65;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(100% - 1.5rem, 73rem);
+        margin: 1.25rem auto 2.5rem;
+        overflow: hidden;
+        background: var(--ivory);
+        border: 1px solid rgba(33, 72, 59, 0.45);
+        border-radius: 0.9rem;
+        box-shadow: 0 1.25rem 3.75rem rgba(20, 55, 44, 0.12);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(1.5rem, 5vw, 4.75rem);
+        background: linear-gradient(135deg, #fefdf9 0%, #edf4eb 100%);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero::before {
+        position: absolute;
+        top: -5rem;
+        bottom: -5rem;
+        left: -1.6rem;
+        width: 4.5rem;
+        content: "";
+        background:
+          repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 2.5rem,
+            rgba(23, 54, 44, 0.8) 2.5rem,
+            rgba(23, 54, 44, 0.8) 2.62rem
+          ),
+          repeating-linear-gradient(
+            to right,
+            transparent 0,
+            transparent 0.47rem,
+            rgba(23, 54, 44, 0.85) 0.47rem,
+            rgba(23, 54, 44, 0.85) 0.55rem
+          );
+        border-right: 1px solid var(--forest);
+        opacity: 0.14;
+        pointer-events: none;
+      }
+
+      .hero::after {
+        position: absolute;
+        bottom: -12rem;
+        left: -11rem;
+        width: 18rem;
+        height: 21rem;
+        content: "";
+        border: 1px solid var(--forest);
+        border-radius: 48% 52% 42% 58% / 42% 40% 60% 58%;
+        opacity: 0.1;
+        pointer-events: none;
+      }
+
+      .hero > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-bar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--line-soft);
+      }
+
+      .eyebrow,
+      .section-label {
+        margin: 0;
+        color: #914a36;
+        font-size: 0.78rem;
+        font-weight: 650;
+        letter-spacing: 0.04em;
+        text-transform: none;
+      }
+
+      .eyebrow {
+        color: var(--forest);
+      }
+
+      .location {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        text-transform: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--display);
+        font-weight: 500;
+      }
+
+      .brand-lockup {
+        max-width: 48rem;
+        margin: clamp(2rem, 6vw, 4.5rem) auto 0;
+        text-align: center;
+      }
+
+      .brand-initials {
+        margin: 0;
+        color: var(--forest);
+        font-family: var(--display);
+        font-size: clamp(5.2rem, 18vw, 10.5rem);
+        font-weight: 500;
+        line-height: 0.67;
+        letter-spacing: -0.13em;
+        transform: translateX(-0.04em);
+      }
+
+      .brand-rule {
+        width: min(85%, 34rem);
+        height: 1px;
+        margin: clamp(1.5rem, 4vw, 2.5rem) auto clamp(1.2rem, 3vw, 1.8rem);
+        background: var(--forest);
+      }
+
+      h1 {
+        margin-bottom: 0.9rem;
+        color: var(--forest);
+        font-family: var(--sans);
+        font-size: clamp(1.35rem, 4.3vw, 2.45rem);
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .tagline {
+        margin: 0;
+        color: var(--forest);
+        font-size: clamp(0.76rem, 2.2vw, 0.98rem);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .hero-content {
+        display: grid;
+        gap: 1.75rem;
+        align-items: center;
+        max-width: 55rem;
+        margin: clamp(2rem, 5vw, 3.25rem) auto 0;
+      }
+
+      .intro {
+        max-width: 39rem;
+        margin: 0;
+        color: #274a3e;
+        font-size: clamp(1.12rem, 2.5vw, 1.36rem);
+        font-weight: 400;
+        line-height: 1.5;
+      }
+
+      .price-callout {
+        display: grid;
+        place-items: center;
+        width: 9rem;
+        aspect-ratio: 1;
+        margin: 0 auto;
+        padding: 1rem;
+        color: #1c4033;
+        background: #fffefa;
+        border: 1px solid rgba(33, 72, 59, 0.58);
+        border-radius: 50%;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        line-height: 1.2;
+        text-align: center;
+        text-transform: none;
+      }
+
+      .price-callout strong {
+        display: block;
+        margin: 0.15rem 0;
+        font-family: var(--display);
+        font-size: 2.95rem;
+        font-weight: 500;
+        letter-spacing: -0.06em;
+        line-height: 0.9;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        max-width: 42rem;
+        margin: clamp(2.25rem, 5vw, 3.25rem) auto 0;
+      }
+
+      .button {
+        display: inline-flex;
+        flex: 1 1 15rem;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.45rem;
+        padding: 0.85rem 1.1rem;
+        color: #173f32;
+        background: #e4b294;
+        border: 1px solid #e4b294;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 1.35;
+        text-align: center;
+        text-decoration: none;
+        text-transform: none;
+        transition:
+          background 150ms ease,
+          color 150ms ease;
+      }
+
+      .button:hover {
+        color: var(--ivory);
+        background: var(--forest);
+        border-color: var(--forest);
+      }
+
+      .button.secondary {
+        color: var(--forest);
+        background: #fffefa;
+        border-color: rgba(33, 72, 59, 0.56);
+      }
+
+      .button.secondary:hover {
+        color: var(--ivory);
+        background: var(--forest);
+      }
+
+      .button:focus-visible {
+        outline: 3px solid var(--forest);
+        outline-offset: 3px;
+      }
+
+      main {
+        display: grid;
+        gap: clamp(0.9rem, 2vw, 1.35rem);
+        padding: clamp(0.9rem, 2.5vw, 1.75rem);
+        background: #f4f0e6;
+      }
+
+      .section {
+        padding: clamp(2rem, 5vw, 4rem) clamp(1.35rem, 4.5vw, 3.75rem);
+        background: var(--ivory);
+        border: 1px solid var(--line-soft);
+        border-radius: 0.85rem;
+        box-shadow: 0 0.45rem 1.4rem rgba(20, 55, 44, 0.045);
+      }
+
+      .soft-section {
+        background: var(--sage);
+      }
+
+      .section-label {
+        margin-bottom: 0.55rem;
+      }
+
+      h2 {
+        max-width: 42rem;
+        margin-bottom: 1.1rem;
+        color: var(--forest);
+        font-size: clamp(2rem, 5vw, 3.35rem);
+        line-height: 1.08;
+        letter-spacing: -0.05em;
+      }
+
+      h3 {
+        color: var(--forest);
+      }
+
+      .section-copy {
+        max-width: 42rem;
+        margin-bottom: 1.8rem;
+        color: #3d584d;
+        font-size: 1.08rem;
+        line-height: 1.65;
+      }
+
+      .service-card {
+        display: grid;
+        gap: 1.25rem;
+        align-items: center;
+        padding: clamp(1.35rem, 3vw, 2rem);
+        background: #fffdf9;
+        border: 1px solid var(--line-soft);
+        border-left: 0.35rem solid var(--warm);
+        border-radius: 0.75rem;
+      }
+
+      .service-card h3 {
+        margin: 0 0 0.35rem;
+        font-size: clamp(1.7rem, 3.5vw, 2.25rem);
+        line-height: 1.05;
+      }
+
+      .service-card p {
+        margin: 0;
+        color: #3d584d;
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      .service-price {
+        display: grid;
+        place-items: center;
+        width: 6.25rem;
+        aspect-ratio: 1;
+        color: var(--ivory);
+        background: var(--warm);
+        border: 0;
+        border-radius: 50%;
+        font-family: var(--display);
+        font-size: 2.8rem;
+        font-weight: 500;
+        letter-spacing: -0.06em;
+        line-height: 1;
+      }
+
+      .note {
+        margin: 1rem 0 0;
+        color: var(--muted);
+        font-family: var(--serif);
+        font-size: 0.97rem;
+        line-height: 1.55;
+      }
+
+      .check-list {
+        display: grid;
+        gap: 0.7rem;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .check-list li {
+        position: relative;
+        min-width: 0;
+        padding: 0.95rem 1rem 0.95rem 3rem;
+        background: rgba(252, 250, 245, 0.7);
+        border: 1px solid var(--line-soft);
+        border-radius: 0.55rem;
+        color: #274a3e;
+        font-size: 1rem;
+        line-height: 1.45;
+      }
+
+      .check-list li::before {
+        position: absolute;
+        top: 0.86rem;
+        left: 0.9rem;
+        display: grid;
+        place-items: center;
+        width: 1.65rem;
+        aspect-ratio: 1;
+        color: var(--forest);
+        background: #dceadf;
+        border: 0;
+        border-radius: 50%;
+        content: "\2713";
+        font-size: 0.85rem;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .details-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .details-grid > div {
+        padding: 1.35rem;
+        background: #fffdf9;
+        border: 1px solid var(--line-soft);
+        border-radius: 0.7rem;
+      }
+
+      .details-grid h3 {
+        margin-bottom: 0.45rem;
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        font-weight: 650;
+        letter-spacing: 0.02em;
+        text-transform: none;
+      }
+
+      .details-grid p {
+        max-width: 28rem;
+        margin-bottom: 0;
+        color: #3d584d;
+        font-size: 1.02rem;
+        line-height: 1.6;
+      }
+
+      .image-frame {
+        position: relative;
+        display: grid;
+        overflow: hidden;
+        background: var(--sage-deep);
+        border: 0;
+        border-radius: 0.7rem;
+      }
+
+      .image-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .image-placeholder {
+        display: grid;
+        place-items: center;
+        min-height: inherit;
+        padding: 1.25rem;
+        color: var(--forest);
+        background:
+          linear-gradient(
+            135deg,
+            transparent 49.5%,
+            var(--line-soft) 50%,
+            transparent 50.5%
+          ),
+          linear-gradient(
+            45deg,
+            transparent 49.5%,
+            var(--line-soft) 50%,
+            transparent 50.5%
+          ),
+          var(--sage-deep);
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        line-height: 1.5;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .team-grid,
+      .gallery-grid {
+        display: grid;
+        gap: 1.15rem;
+      }
+
+      .team-card,
+      .gallery-card {
+        margin: 0;
+        overflow: hidden;
+        background: #fffdf9;
+        border: 1px solid var(--line-soft);
+        border-radius: 0.75rem;
+        box-shadow: 0 0.35rem 1rem rgba(20, 55, 44, 0.05);
+      }
+
+      .team-card .image-frame {
+        aspect-ratio: 4 / 3;
+        border: 0;
+        border-bottom: 1px solid var(--line-soft);
+        border-radius: 0;
+      }
+
+      .team-card-content {
+        padding: 1.15rem 1.2rem 1.25rem;
+      }
+
+      .team-card h3 {
+        margin-bottom: 0.1rem;
+        font-size: 1.9rem;
+        line-height: 1;
+      }
+
+      .team-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        text-transform: none;
+      }
+
+      .flagship-section,
+      .booking-section {
+        position: relative;
+        overflow: hidden;
+        color: var(--forest);
+        background: linear-gradient(135deg, var(--sage) 0%, #fffdf8 100%);
+        border: 1px solid rgba(33, 72, 59, 0.25);
+      }
+
+      .flagship-section::after,
+      .booking-section::after {
+        position: absolute;
+        right: -7rem;
+        bottom: -12rem;
+        width: 21rem;
+        height: 21rem;
+        border: 1px solid rgba(33, 72, 59, 0.12);
+        border-radius: 50%;
+        content: "";
+        pointer-events: none;
+      }
+
+      .flagship-section > *,
+      .booking-section > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .flagship-section .section-label,
+      .booking-section .section-label {
+        color: #914a36;
+      }
+
+      .flagship-section h2,
+      .booking-section h2,
+      .flagship-section h3 {
+        color: var(--forest);
+      }
+
+      .flagship-layout {
+        display: grid;
+        gap: clamp(1.4rem, 3vw, 2.5rem);
+      }
+
+      .flagship-layout .image-frame {
+        aspect-ratio: 4 / 3;
+        background: var(--sage-deep);
+        border: 1px solid rgba(33, 72, 59, 0.38);
+        border-radius: 0.7rem;
+      }
+
+      .flagship-copy {
+        align-self: center;
+      }
+
+      .flagship-copy h3 {
+        margin-bottom: 0.8rem;
+        font-size: clamp(1.85rem, 4vw, 2.7rem);
+        line-height: 1.1;
+      }
+
+      .flagship-copy p {
+        color: #36564a;
+        font-size: 1.04rem;
+        line-height: 1.7;
+      }
+
+      .flagship-copy .note {
+        color: var(--forest);
+      }
+
+      .flagship-copy a {
+        text-decoration-color: rgba(33, 72, 59, 0.45);
+        text-underline-offset: 0.2em;
+      }
+
+      .gallery-card .image-frame {
+        aspect-ratio: 4 / 5;
+        border: 0;
+        border-bottom: 1px solid var(--line-soft);
+        border-radius: 0;
+      }
+
+      .gallery-caption {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 1.1rem;
+      }
+
+      .gallery-caption strong {
+        color: var(--forest);
+        font-family: var(--display);
+        font-size: 1.75rem;
+        font-weight: 500;
+        line-height: 1;
+      }
+
+      .gallery-caption span {
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-align: right;
+        text-transform: none;
+      }
+
+      .booking-section {
+        border-bottom: 0;
+      }
+
+      .booking-section .section-copy {
+        max-width: 38rem;
+        color: #36564a;
+      }
+
+      .booking-section .button {
+        width: 100%;
+        max-width: 22rem;
+        color: #173f32;
+        background: #e4b294;
+        border-color: #e4b294;
+        border-radius: 0.5rem;
+      }
+
+      .booking-section .button:hover {
+        color: var(--ivory);
+        background: var(--forest);
+        border-color: var(--forest);
+      }
+
+      .tribute-section {
+        position: relative;
+        overflow: hidden;
+        background: #fffdf8;
+      }
+
+      .tribute-section::before {
+        position: absolute;
+        top: -5rem;
+        right: -5rem;
+        width: 15rem;
+        height: 15rem;
+        border: 1px solid rgba(33, 72, 59, 0.12);
+        border-radius: 50%;
+        content: "";
+      }
+
+      .tribute-section > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .tribute-copy {
+        max-width: 42rem;
+        margin: 0;
+        color: #36564a;
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+
+      .tribute-names {
+        margin: 1.25rem 0 0.5rem;
+        color: var(--forest);
+        font-family: var(--display);
+        font-size: clamp(1.8rem, 4vw, 2.7rem);
+        line-height: 1.1;
+      }
+
+      .tribute-link {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 1.25rem;
+        color: var(--forest);
+        font-size: 1rem;
+        font-weight: 650;
+        text-decoration-color: #b96748;
+        text-decoration-thickness: 0.12em;
+        text-underline-offset: 0.18em;
+      }
+
+      .tribute-link:hover {
+        color: #914a36;
+      }
+
+      .disclaimer {
+        padding: clamp(1.8rem, 4vw, 2.75rem) clamp(1.4rem, 4.5vw, 3.75rem);
+        background: var(--ivory-deep);
+        border: 0;
+        border-radius: 0.75rem;
+      }
+
+      .disclaimer h2 {
+        margin-bottom: 0.55rem;
+        font-family: var(--sans);
+        font-size: 0.86rem;
+        font-weight: 650;
+        letter-spacing: 0.03em;
+        text-transform: none;
+      }
+
+      .disclaimer p {
+        max-width: 48rem;
+        margin: 0;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+
+      footer {
+        margin-top: -0.1rem;
+        padding: 1.45rem;
+        color: var(--forest);
+        background: #e5eee4;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-align: center;
+        text-transform: none;
+      }
+
+      @media (min-width: 38rem) {
+        .service-card {
+          grid-template-columns: minmax(0, 1fr) auto;
+        }
+
+        .check-list {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .details-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 1.5rem;
+        }
+
+        .team-grid,
+        .gallery-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 48rem) {
+        .hero-content {
+          grid-template-columns: minmax(0, 1fr) auto;
+        }
+
+        .price-callout {
+          margin: 0;
+        }
+
+        .flagship-layout {
+          grid-template-columns: minmax(0, 1.2fr) minmax(15rem, 0.8fr);
+          align-items: center;
+        }
+      }
+
+      @media (max-width: 28rem) {
+        .page {
+          width: 100%;
+          margin: 0;
+          border-right: 0;
+          border-left: 0;
+        }
+
+        .location {
+          display: none;
+        }
+
+        h1 {
+          font-size: 1.08rem;
+          letter-spacing: 0.19em;
+        }
+
+        .tagline {
+          letter-spacing: 0.15em;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .button {
+          transition: none;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script>
-      // GitHub Pages serves the SPA fallback for direct links to these routes.
-      if (window.location.pathname !== '/') {
-        window.location.replace(`/#${window.location.pathname}${window.location.search}`)
-      }
-    </script>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="page">
+      <header class="hero">
+        <div class="hero-bar">
+          <p class="eyebrow">DB Guitar Setup</p>
+          <p class="location">Middle Tennessee</p>
+        </div>
+
+        <div class="brand-lockup">
+          <p class="brand-initials" aria-hidden="true">DB</p>
+          <div class="brand-rule" aria-hidden="true"></div>
+          <h1>Guitar Setup</h1>
+          <p class="tagline">Play Better. Sound Better.</p>
+        </div>
+
+        <div class="hero-content">
+          <p class="intro">
+            Drew and Bradley provide thoughtful setups that make your instrument
+            easier to play, cleaner, and more enjoyable.
+          </p>
+          <div class="price-callout">
+            Full setup
+            <strong>$70</strong>
+            Acoustic, electric, or bass
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a
+            class="button"
+            href="sms:+19512182663?body=Hi%20DB%20Guitar%20Setup%2C%20I%27d%20like%20to%20schedule%20a%20setup."
+            >Text to book a setup</a
+          >
+          <a class="button secondary" href="mailto:dbguitarsetup@gmail.com"
+            >Email us</a
+          >
+        </div>
+        <p class="note">
+          By texting DB Guitar Setup or submitting your phone number for
+          service, you confirm that you are the owner or authorized user of the
+          number and consent to receive setup-related text messages. Message
+          frequency varies. Reply HELP for help or STOP to opt out. Message and
+          data rates may apply. See our
+          <a href="privacy-policy.html">Privacy Policy</a> and
+          <a href="terms.html">Terms of Service</a>.
+        </p>
+      </header>
+
+      <main>
+        <section class="section" aria-labelledby="services-title">
+          <p class="section-label">Precision Setups</p>
+          <h2 id="services-title">One complete setup. No guesswork.</h2>
+          <p class="section-copy">
+            We set up acoustic guitars, electric guitars, and basses with the
+            care they need to feel right in your hands.
+          </p>
+
+          <div class="service-card">
+            <div>
+              <h3>Full Guitar Setup</h3>
+              <p>Acoustic, electric, and bass guitars.</p>
+            </div>
+            <span class="service-price">$70</span>
+          </div>
+          <p class="note">Parts and strings are additional unless noted.</p>
+        </section>
+
+        <section class="section soft-section" aria-labelledby="includes-title">
+          <p class="section-label">Detail Oriented</p>
+          <h2 id="includes-title">Every setup covers the details.</h2>
+          <ul class="check-list">
+            <li>Fret prep and fret polish</li>
+            <li>Fretboard rehydration</li>
+            <li>Body polish</li>
+            <li>String change</li>
+            <li>Truss rod adjustment</li>
+            <li>Neck relief and action adjustment</li>
+            <li>Intonation check and adjustment</li>
+            <li>Hardware check and basic cleaning</li>
+            <li>Wipe down</li>
+          </ul>
+        </section>
+
+        <section class="section soft-section" aria-labelledby="process-title">
+          <p class="section-label">The Process</p>
+          <h2 id="process-title">Simple from drop-off to pick-up.</h2>
+          <div class="details-grid">
+            <div>
+              <h3>Get in touch</h3>
+              <p>
+                Text or email us with your guitar and what you would like
+                improved.
+              </p>
+            </div>
+            <div>
+              <h3>Drop off and play</h3>
+              <p>
+                We'll arrange a drop-off and confirm the turnaround before work
+                begins. Typical turnaround is 1-3 days.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="team-title">
+          <p class="section-label">The Team</p>
+          <h2 id="team-title">The hands behind the setup.</h2>
+          <p class="section-copy">
+            Meet the people caring for your instrument from drop-off to pick-up.
+          </p>
+          <div class="team-grid">
+            <article class="team-card">
+              <div class="image-frame">
+                <!-- Upload your photo as images/drew.jpg to replace this placeholder. -->
+                <img
+                  src="images/drew.jpg"
+                  alt="Drew of DB Guitar Setup"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="
+                    this.hidden = true;
+                    this.nextElementSibling.hidden = false;
+                  "
+                />
+              </div>
+              <div class="team-card-content">
+                <h3>Drew</h3>
+                <p>DB Guitar Setup</p>
+              </div>
+            </article>
+
+            <article class="team-card">
+              <div class="image-frame">
+                <img
+                  src="images/bradley.jpg"
+                  alt="Bradley of DB Guitar Setup"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="
+                    this.hidden = true;
+                    this.nextElementSibling.hidden = false;
+                  "
+                />
+                <div class="image-placeholder" hidden>
+                  Photo of Bradley<br />Upload: images/bradley.jpg
+                </div>
+              </div>
+              <div class="team-card-content">
+                <h3>Bradley</h3>
+                <p>DB Guitar Setup</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="section flagship-section"
+          aria-labelledby="flagship-title"
+        >
+          <p class="section-label">Featured Instrument</p>
+          <h2 id="flagship-title">Our flagship guitar.</h2>
+          <div class="flagship-layout">
+            <div class="image-frame">
+              <img
+                src="images/flagship-guitar.jpg"
+                alt="2012 Gibson Les Paul Studio Satin with custom pyrography artwork"
+                loading="lazy"
+                decoding="async"
+                onerror="
+                  this.hidden = true;
+                  this.nextElementSibling.hidden = false;
+                "
+              />
+              <div class="image-placeholder" hidden>
+                Flagship guitar photo<br />Upload: images/flagship-guitar.jpg
+              </div>
+            </div>
+            <div class="flagship-copy">
+              <h3>2012 Gibson Les Paul Studio Satin</h3>
+              <p>
+                Guitar commissioned to be setup by Raye Smith from Raye Ann
+                Pyrography (formerly Cinderbella Studios), the artist behind the
+                beautiful art you see burned onto the guitar. We were blessed to
+                be able to disassemble and sand the guitar for her work and
+                reassemble it for a full setup. The guitar is now a beautiful
+                work of art and plays like a dream. We are honored to have been
+                a part of this project and to have had the opportunity to work
+                with such a talented artist.
+              </p>
+              <p class="note">
+                Follow Raye on Instagram: @
+                <a
+                  href="https://www.instagram.com/rayeannpyrography/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >rayeannpyrography</a
+                >
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="work-title">
+          <p class="section-label">Recent Work</p>
+          <h2 id="work-title">See the difference a careful setup makes.</h2>
+          <p class="section-copy">
+            A before-and-after look at a guitar we've brought back into playing
+            shape.
+          </p>
+          <div class="gallery-grid">
+            <figure class="gallery-card">
+              <figcaption class="gallery-caption">
+                <strong>Before</strong>
+                <span>Before service</span>
+              </figcaption>
+              <div class="image-frame">
+                <img
+                  src="images/work-before.jpg"
+                  alt="Guitar before service"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="
+                    this.hidden = true;
+                    this.nextElementSibling.hidden = false;
+                  "
+                />
+              </div>
+            </figure>
+
+            <figure class="gallery-card">
+              <figcaption class="gallery-caption">
+                <strong>After</strong>
+                <span>After service</span>
+              </figcaption>
+              <div class="image-frame">
+                <img
+                  src="images/work-after.jpg"
+                  alt="Guitar after service"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="
+                    this.hidden = true;
+                    this.nextElementSibling.hidden = false;
+                  "
+                />
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <section
+          class="section booking-section"
+          aria-labelledby="booking-title"
+        >
+          <p class="section-label">Book a Setup</p>
+          <h2 id="booking-title">Ready to play better?</h2>
+          <p class="section-copy">
+            Text us to schedule your guitar setup. We'll help get your guitar
+            playing its best in no time.
+          </p>
+          <a
+            class="button"
+            href="sms:+19512182663?body=Hi%20DB%20Guitar%20Setup%2C%20I%27d%20like%20to%20schedule%20a%20setup."
+            >Text to book a setup</a
+          >
+          <p class="note">
+            By texting our number or submitting your phone number for a setup,
+            you confirm that you are the owner or authorized user of the number
+            and consent to receive setup-related SMS messages from DB Guitar
+            Setup. Message frequency varies. Reply HELP for help or STOP to opt
+            out. Message and data rates may apply.
+          </p>
+        </section>
+
+        <section class="section" aria-labelledby="compliance-title">
+          <p class="section-label">Business Information</p>
+          <h2 id="compliance-title">Required contact and legal details.</h2>
+          <div class="details-grid">
+            <div>
+              <h3>Business details</h3>
+              <p>
+                DB Guitar Setup<br />
+                Sole proprietor / DBA<br />
+                Mailing address: 2104 Hollandale Circle<br />
+                Columbia, TN 38401<br />
+                Email: dbguitarsetup@gmail.com<br />
+                Phone: +1 (951) 218-2663
+              </p>
+            </div>
+            <div>
+              <h3>Privacy &amp; terms</h3>
+              <p>
+                Review our legal information here:
+                <a href="privacy-policy.html">Privacy Policy</a> and
+                <a href="terms.html">Terms of Service</a>.<br />
+                DB Guitar Setup does not buy, sell, or trade leads.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="section tribute-section"
+          aria-labelledby="tribute-title"
+        >
+          <p class="section-label">With gratitude</p>
+          <h2 id="tribute-title">A thank-you to the people who taught us.</h2>
+          <p class="tribute-copy">
+            We learned everything we know from the generosity, instruction, and
+            example of Setup2Worship.
+          </p>
+          <p class="tribute-names">Steve and Joanne Cocking</p>
+          <p class="tribute-copy">
+            Their work has helped us care for instruments with more knowledge,
+            intention, and respect for the people who play them.
+          </p>
+          <a
+            class="tribute-link"
+            href="https://setup2worship.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Visit Setup2Worship.com</a
+          >
+        </section>
+
+        <section class="disclaimer" aria-labelledby="disclaimer-title">
+          <h2 id="disclaimer-title">Disclaimer</h2>
+          <p>
+            We are not professional luthiers and cannot perform major repairs.
+            Our purpose is to sharpen the weapons the Levites use to demolish
+            the strongholds we war against. (2 Corinthians 10:4-5)
+            <br /><br />We take reasonable care with every instrument entrusted
+            to us and will be responsible for any damage directly caused by our
+            work. We are not responsible for pre-existing conditions, latent
+            defects, or damage resulting from the normal risks inherent in
+            guitar setup and adjustment (such as fret wear, aged hardware, or
+            fragile finishes). By leaving your instrument with us, you
+            acknowledge that you have disclosed any known pre-existing issues
+            and accept these terms.
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <div>DB Guitar Setup &middot; Middle Tennessee</div>
+        <div>2104 Hollandale Circle, Columbia, TN 38401</div>
+        <div>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          &middot;
+          <a href="terms.html">Terms of Service</a>
+          &middot;
+          <a href="mailto:dbguitarsetup@gmail.com">Email</a>
+          &middot;
+          <a href="tel:+19512182663">Call</a>
+        </div>
+        <script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6a8b4666f707f5549134ddb5"
+          data-source="WEB_USER"
+        ></script>
+      </footer>
+    </div>
   </body>
 </html>
